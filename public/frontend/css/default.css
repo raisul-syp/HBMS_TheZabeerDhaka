@@ -1,0 +1,55 @@
+body {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    font-size: 14px;
+    font-family: 'Nunito Sans', sans-serif !important;
+}
+
+:root {
+    --siteBG1: #ffffff;
+    --siteBG2: #1e1e1eff;
+    --siteBG3: #e4e4e3;
+    /* --siteColor1: #0B0139; */
+    --siteColor1: #2c2c2c;
+    /* --siteColor2: #ffd700; */
+    --siteColor2: #D1962B;
+    --siteBorder: #777777;
+    --siteFont1: #888888;
+    --siteFont2: #ffffff;
+    --siteFont3: #c7c7c7;
+    --siteHover1: #ffffff;
+
+    --facebook: #3b5998;
+    --twitter: #1da1f2;
+    --instagram: #34a853;
+    --youtube: #bd081c;
+
+    --goldenBG: linear-gradient(to right, #814d01, #996101, #b07701, #c88d01, #dea500, #dea500, #dea500, #dea500, #c88d01, #b07701, #996101, #814d01);
+    /* --goldenBG2: radial-gradient(circle, #FFD99E, #EFBC59, #B07E2B, #D1962B, #9F6D2A); */
+    --goldenBG2: radial-gradient(circle, #ffd700, #f8c01f, #edab2e, #de9738, #cd853f);
+}
+
+.decor-1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 150px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--goldenBG2);
+    background-size: 400% 200%;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+} 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 0;
+} 
+body::-webkit-scrollbar-thumb {
+  background: var(--goldenBG2);
+  border-radius: 0;
+}

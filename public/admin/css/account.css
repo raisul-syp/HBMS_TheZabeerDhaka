@@ -1,0 +1,61 @@
+.authincation {
+    background: var(--goldenBG2) !important;
+    background-size: 400% 200% !important;
+}
+.authincation .authincation-content {
+    background: var(--siteColor1);
+    border-radius: 0;
+}
+
+.authincation .authincation-content .auth-form .go-back {
+    position: absolute;
+}
+
+.authincation .authincation-content .auth-form .header-sec h4 {
+    color: var(--siteColor2);
+}
+
+.authincation .authincation-content .auth-form label {
+    color: var(--siteColor2);
+}
+
+.authincation .authincation-content .auth-form input {
+    border-radius: 0;
+    border: 1px solid var(--siteColor2);
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #f0f8ff;
+}
+
+.authincation .authincation-content .auth-form input[type="checkbox"]:after {
+    border-radius: 0;
+}
+
+.authincation .authincation-content .auth-form input[type="checkbox"]:checked:after {
+    background: var(--goldenBG2);
+    background-size: 400% 200%;
+    color: var(--siteColor1);
+}
+
+.authincation .authincation-content .auth-form a {
+    color: var(--siteColor2);
+}
+
+.authincation .authincation-content .auth-form button {
+    background: var(--goldenBG2);
+    background-size: 400% 200%;
+    color: var(--siteColor1);
+    border: 1px solid var(--siteColor2);
+    border-radius: 0;
+    transition: all 0.3s ease-in;
+}
+
+.authincation .authincation-content .auth-form button:hover {
+    background: transparent;
+    color: var(--siteColor2);
+    border: 1px solid var(--siteColor2);
+}
+
+.authincation .authincation-content .auth-form .new-account a {
+    color: var(--siteColor2) !important;
+}
