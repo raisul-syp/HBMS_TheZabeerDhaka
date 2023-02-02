@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 06:54 AM
+-- Generation Time: Feb 02, 2023 at 12:53 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -1074,7 +1074,9 @@ CREATE TABLE `hb_webtestimonials` (
 --
 
 INSERT INTO `hb_webtestimonials` (`id`, `name`, `designation`, `company`, `message`, `image`, `slug`, `display_order`, `meta_title`, `meta_keyword`, `meta_decription`, `is_active`, `is_delete`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Mr. Matiur Rahman', 'Owner', 'Sarothi Enterprise', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text', 'mr-matiur-rahman.jpg', '', '1', 'Mr. Matiur Rahman', 'Mr. Matiur Rahman', 'Mr. Matiur Rahman', 1, 1, '1', NULL, '2022-12-26 01:23:24', '2022-12-26 01:23:24');
+(1, 'Mr. Asaduzzaman Khan', 'Minister', 'Ministry of Home Affairs', 'I recently stayed at The Zabeer Dhaka and was highly impressed. The hotel had a beautiful property with luxurious amenities. The room was elegantly designed and the bed was incredibly comfortable. The staff was exceptional, providing top-notch service throughout my stay.', 'mr-asaduzzaman-khan.png', 'mr-asaduzzaman-khan', '1', 'Mr. Matiur Rahman', 'Mr. Matiur Rahman', 'Mr. Matiur Rahman', 1, 1, '1', '1', '2022-12-25 19:23:24', '2023-02-01 18:53:54'),
+(2, 'Sadika Parvin Popy', 'Actress', 'Bangladesh Film Development Corporation', 'I recently stayed at The Zabeer Dhaka and had a wonderful experience. The hotel had a great location, close to many attractions and dining options. The rooms were modern and well-equipped, making my stay comfortable and enjoyable. I highly recommend The Zabeer Dhaka to anyone looking for a great stay.', 'sadika-parvin-popy.png', 'sadika-parvin-popy', '2', 'Sadika Parvin Popy', 'Sadika Parvin Popy', 'Sadika Parvin Popy', 1, 1, '1', '1', '2023-02-01 18:47:14', '2023-02-01 18:53:01'),
+(3, 'Riaz Uddin Ahamed Siddique', 'Actor', 'Bangladesh Film Development Corporation', 'I recently stayed at The Zabeer Dhaka and was extremely satisfied. The room was clean and comfortable, with all the necessary amenities. The staff was friendly and accommodating, always willing to assist with any needs. I would highly recommend The Zabeer Dhaka for a great stay.', 'riaz-uddin-ahamed-siddique.png', 'riaz-uddin-ahamed-siddique', '3', 'Riaz Uddin Ahamed Siddique', 'Riaz Uddin Ahamed Siddique', 'Riaz Uddin Ahamed Siddique', 1, 1, '1', NULL, '2023-02-01 18:50:45', '2023-02-01 18:50:45');
 
 -- --------------------------------------------------------
 
@@ -2016,7 +2018,7 @@ ALTER TABLE `hb_websliders`
 -- AUTO_INCREMENT for table `hb_webtestimonials`
 --
 ALTER TABLE `hb_webtestimonials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hb_wellness`
