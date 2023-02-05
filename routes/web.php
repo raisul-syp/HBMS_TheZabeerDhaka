@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::prefix('/booking')->controller(App\Http\Controllers\Frontend\BookingController::class)->group(function (){
         Route::get('/', 'index');
         Route::post('/', 'store');
-        Route::get('/available-rooms/{checkin_date}', 'availableRooms');
+        Route::get('/available-rooms/{checkin_date}/{checkout_date}', 'availableRooms');
         Route::get('/success', 'success');
     });
 
@@ -195,7 +195,7 @@ Route::group(['middleware' => 'isAdmin'], function() {
         Route::get('/edit/{booking}', 'edit');
         Route::put('/edit/{booking}', 'update');
         Route::get('/details/{booking}', 'details');
-        Route::get('/available-rooms/{checkin_date}', 'availableRooms');
+        Route::get('/available-rooms/{checkin_date}/{checkout_date}', 'availableRooms');
     });
 
 

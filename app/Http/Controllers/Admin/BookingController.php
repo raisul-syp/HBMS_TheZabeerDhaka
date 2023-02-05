@@ -173,13 +173,39 @@ class BookingController extends Controller
         return view('admin.booking.details', compact('booking', 'guests', 'rooms', 'staffs', 'serialNo'));
     }
 
+    // public function availableRooms(Request $request, $checkin_date)
+    // {
+    //     $available_rooms = Room::whereDoesntHave('bookings', function($query) use ($checkin_date) {
+    //         $query->where('checkin_date', '<=', $checkin_date)
+    //               ->where('checkout_date', '>=', $checkin_date);
+    //     })->get();
+        
+    //     return response()->json(['data' => $available_rooms]);
+    // }
+
     public function availableRooms(Request $request, $checkin_date)
     {
-        $available_rooms = Room::whereDoesntHave('bookings', function($query) use ($checkin_date) {
-            $query->where('checkin_date', '<=', $checkin_date)
-                  ->where('checkout_date', '>=', $checkin_date);
-        })->get();
-        
+        $rooms = Room::all();
+        $available_rooms = [];
+
+        foreach($rooms as $room) {
+            $booked_rooms = Booking::where('room_id', $room->id)
+                ->where(function ($query) use ($checkin_date) {
+                    $query->where('checkin_date', '<=', $checkin_date)
+                        ->where('checkout_date', '>=', $checkin_date);
+                })->count();
+
+            $available_quantity = $room->quantity - $booked_rooms;
+            if ($available_quantity > 0) {
+                $available_rooms[] = [
+                    'id' => $room->id,
+                    'name' => $room->name,
+                    'quantity' => $room->quantity,
+                    'available_quantity' => $available_quantity
+                ];
+            }
+        }
+
         return response()->json(['data' => $available_rooms]);
     }
 }

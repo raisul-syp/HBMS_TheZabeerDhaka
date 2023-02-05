@@ -156,7 +156,7 @@
 
 
 @section('scripts')
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     $(document).ready(function(){
         $(".checkin-date").on('blur',function(){
             var _checkindate = $(this).val();
@@ -173,6 +173,32 @@
                     var _html = '';
                     $.each(res.data,function(index,row){
                         _html +='<option value="'+row.id+'">'+row.name+" ("+row.quantity+" rooms are available)</option>";
+                    });
+                    $(".room-list").html(_html);
+                }
+            });
+        });
+    });
+</script> --}}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".checkin-date").on('blur',function(){
+            var _checkindate = $(this).val();
+            var _checkoutdate = $(".checkout-date").val();
+
+            // Ajax
+            $.ajax({
+                url: "{{ url('booking') }}/available-rooms/"+_checkindate + "/" + _checkoutdate,
+                type: 'get',
+                dataType: 'json',
+                beforeSend: function(){
+                    $(".room-list").html('<option>Loading...</option>');
+                },
+                success: function(res){
+                    var _html = '';
+                    $.each(res.data,function(index,row){
+                        _html +='<option value="'+row.id+'">'+row.name+" ( "+row.available_quantity+" rooms are available out of "+row.quantity+" )</option>";
                     });
                     $(".room-list").html(_html);
                 }

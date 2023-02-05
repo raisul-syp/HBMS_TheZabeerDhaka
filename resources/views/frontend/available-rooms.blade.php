@@ -84,15 +84,16 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 @forelse ($available_rooms as $room)
-                                    <div class="card mb-4">
-                                        <div class="card-body">
-                                            <div class="availableRoom-card">
-                                                <div class="row">
-                                                    <div class="col-lg-4 mb-2 mb-lg-0">
-                                                        <div class="room-img">
-                                                            @foreach ($room->roomImages as $roomImage)
-                                                                <img src="{{ asset($roomImage->image) }}" alt="">
-                                                            @break
+                                @if ($room->quantity - $room->bookings->count() > 0)
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="availableRoom-card">
+                                            <div class="row">
+                                                <div class="col-lg-4 mb-2 mb-lg-0">
+                                                    <div class="room-img">
+                                                        @foreach ($room->roomImages as $roomImage)
+                                                        <img src="{{ asset($roomImage->image) }}" alt="">
+                                                        @break
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -102,10 +103,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-12">
                                                                 <div class="room-title">
-                                                                    <a
-                                                                        href="{{ url('rooms/room-details/' . $room->id) }}">
-                                                                        {{ $room->name }}
-                                                                    </a>
+                                                                    <a href="{{ url('rooms/room-details/' . $room->id) }}">{{ $room->name }}</a>
                                                                 </div>
                                                             </div>
 
@@ -126,10 +124,7 @@
 
                                                             <div class="col-lg-6">
                                                                 <div class="room-availability-count text-end">
-                                                                    <span
-                                                                        class="badge rounded-pill bg-success available-badge">{{ $room->quantity - $room->bookings->where('room_id', $room->id)->count() }}
-                                                                        rooms are available out of
-                                                                        {{ $room->quantity }}</span>
+                                                                    <span class="badge rounded-pill bg-success available-badge">{{ $room->quantity - $room->bookings->where('room_id', $room->id)->count() }} rooms are available out of {{ $room->quantity }}</span>
                                                                 </div>
                                                                 <div class="room-pricing">
                                                                     <h5>${{ $room->price }}++<span>/night</span></h5>
@@ -167,14 +162,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            @empty
-                                No Rooms Found
-                            @endforelse
+                                @endif
+                                @empty
+                                    No Rooms Found
+                                @endforelse
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection

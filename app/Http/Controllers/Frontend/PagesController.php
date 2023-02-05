@@ -112,25 +112,45 @@ class PagesController extends Controller
         return view('frontend.details.wellness', compact('todayDate','tomorrowDate','wellness'));
     }
 
+    // public function checkAvailability(Request $request)
+    // {
+    //     $checkin_date = $request->checkin_date;
+    //     $checkout_date = $request->checkout_date;
+    //     $hotel_location = $request->hotel_location;
+    //     $total_adults = $request->adults;
+    //     $total_childs = $request->children;
+
+    //     $available_rooms = Room::whereNotIn('id', function($query) use ($checkin_date, $checkout_date) {
+    //         $query->select('room_id')->from('hb_bookings')
+    //         ->whereBetween('checkin_date', [$checkin_date, $checkout_date])
+    //         ->orWhereBetween('checkout_date', [$checkin_date, $checkout_date]);
+    //     })
+    //     ->where('hotel_id', $hotel_location)
+    //     ->where('max_adults', '>=', (int) $total_adults)
+    //     ->where('max_childs', '>=', (int) $total_childs)
+    //     ->where('is_active', 1)
+    //     ->get();
+
+    //     return view('frontend.available-rooms', compact('available_rooms'));
+    // }
+
     public function checkAvailability(Request $request)
     {
-        $checkin_date = $request->checkin_date;
-        $checkout_date = $request->checkout_date;
-        $hotel_location = $request->hotel_location;
-        $total_adults = $request->adults;
-        $total_childs = $request->children;
+        $checkin_date = $request->input('checkin_date');
+        $checkout_date = $request->input('checkout_date');
+        $total_adults = $request->input('adults');
+        $total_childs = $request->input('children');
 
-        $available_rooms = Room::whereNotIn('id', function($query) use ($checkin_date, $checkout_date) {
-            $query->select('room_id')->from('hb_bookings')
-            ->whereBetween('checkin_date', [$checkin_date, $checkout_date])
-            ->orWhereBetween('checkout_date', [$checkin_date, $checkout_date]);
-        })
-        ->where('hotel_id', $hotel_location)
+        $available_rooms = Room::with([
+            'bookings' => function ($query) use ($checkin_date, $checkout_date) {
+                $query->whereBetween('checkin_date', [$checkin_date, $checkout_date])
+                      ->orWhereBetween('checkout_date', [$checkin_date, $checkout_date]);
+            }
+        ])
         ->where('max_adults', '>=', (int) $total_adults)
         ->where('max_childs', '>=', (int) $total_childs)
         ->where('is_active', 1)
         ->get();
-
-        return view('frontend.available-rooms', compact('available_rooms'));
+        return view('frontend.available-rooms', compact('available_rooms', 'checkin_date', 'checkout_date', 'total_adults', 'total_childs'));
     }
 }
