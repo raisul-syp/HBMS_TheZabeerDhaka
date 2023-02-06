@@ -7,12 +7,14 @@ use App\Models\Hotel;
 use App\Models\Booking;
 use App\Models\Facility;
 use App\Models\Roomtype;
+use App\Models\RoomImage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Psy\Readline\Hoa\Console;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\RoomFormRequest;
 
 class RoomController extends Controller
@@ -171,5 +173,14 @@ class RoomController extends Controller
         }
 
         return redirect('admin/room')->with('message','Congratulations! New Room Has Been Updated Successfully.');
+    }
+    
+    public function destroyImage(int $room_image_id) {
+        $roomImage = RoomImage::findOrFail($room_image_id);
+        if(File::exists($roomImage->image)) {
+            File::delete($roomImage->image);
+        }
+        $roomImage->delete();
+        return redirect()->back();
     }
 }

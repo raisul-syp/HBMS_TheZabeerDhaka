@@ -113,6 +113,7 @@ Route::group(['middleware' => 'isAdmin'], function() {
         Route::post('/', 'store');
         Route::get('/edit/{room}', 'edit');
         Route::put('/edit/{room}', 'update');
+        Route::get('room-image/delete/{room_image_id}', 'destroyImage');
     });
 
     // Restaurent

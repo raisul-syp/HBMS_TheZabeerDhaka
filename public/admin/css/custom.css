@@ -40,8 +40,33 @@
     margin-top: 20px;
 }
 
+.image-preview a.delete-room-image {
+    position: absolute;
+    right: 23px;
+    top: 8px;
+}
+
+.image-preview a.delete-room-image i {
+    font-size: 18px;
+    border: 1px solid #fff;
+    color: #fff;
+    background: #11111147;
+    width: 30px;
+    height: 30px;
+    padding: 5px 7px;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.image-preview a.delete-room-image:hover i {
+    border: 1px solid #FF1616;
+    color: #ffffff;
+    background: #FF1616;
+}
+
 .image-preview img.preview-img {
-    border: 1px solid #593bdb;
+    background: var(--siteColor1);
+    border: 2px solid var(--siteColor2);
     padding: 5px;
     width: 100%;
     height: auto;

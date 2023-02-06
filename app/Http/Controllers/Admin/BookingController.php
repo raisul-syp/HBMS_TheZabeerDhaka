@@ -193,7 +193,7 @@ class BookingController extends Controller
                 ->where(function ($query) use ($checkin_date) {
                     $query->where('checkin_date', '<=', $checkin_date)
                         ->where('checkout_date', '>=', $checkin_date);
-                })->count();
+                })->where('booking_status', 1)->count();
 
             $available_quantity = $room->quantity - $booked_rooms;
             if ($available_quantity > 0) {

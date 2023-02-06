@@ -143,8 +143,11 @@ class PagesController extends Controller
 
         $available_rooms = Room::with([
             'bookings' => function ($query) use ($checkin_date, $checkout_date) {
-                $query->whereBetween('checkin_date', [$checkin_date, $checkout_date])
-                      ->orWhereBetween('checkout_date', [$checkin_date, $checkout_date]);
+                $query->where(function ($query) use ($checkin_date, $checkout_date) {
+                    $query->whereBetween('checkin_date', [$checkin_date, $checkout_date])
+                          ->orWhereBetween('checkout_date', [$checkin_date, $checkout_date]);
+                })
+                ->where('booking_status', 1);
             }
         ])
         ->where('max_adults', '>=', (int) $total_adults)

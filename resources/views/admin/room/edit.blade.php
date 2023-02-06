@@ -270,6 +270,9 @@
                                                 @foreach ($room->roomImages as $image)
                                                 <div class="col-lg-2">
                                                     <img src="{{ asset($image->image) }}" alt="" class="preview-img">
+                                                    <a href="{{ url('admin/room/room-image/delete/'.$image->id) }}" class="delete-room-image">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
                                                 </div>
                                                 @endforeach
                                             </div>
