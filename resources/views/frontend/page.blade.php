@@ -376,13 +376,13 @@
                                             <strong>Max. Guest:</strong> {{ $room->max_adults + $room->max_childs }} person(s)
                                         </span>
                                     </div>
-                                    <div class="page-availability">
+                                    {{-- <div class="page-availability">
                                         @if (count($room->bookings) > 0)
                                         <span class="badge badge-sm bg-danger">Occupied</span>
                                         @else
                                         <span class="badge badge-sm bg-success">Available</span>
                                         @endif
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

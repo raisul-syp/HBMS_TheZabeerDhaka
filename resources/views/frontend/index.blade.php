@@ -117,7 +117,7 @@
     <div class="offer_section_inner">
         <div class="container">
             <div class="row">
-                @foreach ($offers->where('offer_category', '=', 'Restaurant')->slice(0,2) as $offer)
+                @foreach ($offers->where('offer_category', '=', 'Restaurant')->slice(-2) as $offer)
                 <div class="col-lg-6 col-mob-12 mb-3 mb-lg-0">
                     <div class="offer_sec">
                         <a href="{{ url('offers/offer-details/'.$offer->slug) }}">
@@ -247,7 +247,7 @@
         <div class="container">
             <div class="row">
                 <div class="owl-carousel owl-theme room-offer-carousel">
-                    @foreach ($offers->where('offer_category', '=', 'Room')->slice(0,2) as $offer)
+                    @foreach ($offers->where('offer_category', '=', 'Room')->slice(-2) as $offer)
                     <div class="item">
                         <div class="offer_sec">
                             <a href="{{ url('offers/offer-details/'.$offer->slug) }}">
