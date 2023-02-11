@@ -115,8 +115,7 @@
 
                                                             <div class="col-lg-6">
                                                                 <div class="room-capacity">
-                                                                    <strong>Max. Guest:
-                                                                    </strong>{{ $room->max_adults + $room->max_childs }} <br>
+                                                                    <strong>Max. Guest: </strong>{{ $room->max_adults + $room->max_childs.' person(s)' }} <br>
                                                                 </div>
                                                                 <div class="room-availability-count">
                                                                     <span class="badge rounded-pill bg-success available-badge">{{ $room->quantity - $room->bookings->where('room_id', $room->id)->count() }} rooms are available out of {{ $room->quantity }}</span>
