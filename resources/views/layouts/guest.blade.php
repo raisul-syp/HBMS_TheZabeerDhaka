@@ -7,6 +7,9 @@
     @foreach ($settings as $item)
     <title>@yield('title') - {{ $item->name }}</title>
     @endforeach
+    <meta name="description" content="@yield('meta_decription')">
+    <meta name="keywords" content="@yield('meta_keyword')">
+    <meta name="author" content="SYP Solutions Ltd.">
 
     <!-- Favicon icon -->
     @foreach ($settings as $item)

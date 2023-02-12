@@ -1,5 +1,11 @@
 @extends('layouts.guest')
-@section('title', 'Contact Us')
+@foreach ($pages as $page)
+@if ($page->name == 'Contact Us')
+@section('title', "$page->meta_title")
+@section('meta_decription', "$page->meta_decription")
+@section('meta_keyword', "$page->meta_keyword")
+@endif
+@endforeach
 
 @section('content')
     <section id="contact_section_frontend" class="contact_section_frontend content_section">

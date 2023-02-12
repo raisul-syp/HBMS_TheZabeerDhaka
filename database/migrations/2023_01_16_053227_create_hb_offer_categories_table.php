@@ -17,10 +17,10 @@ class CreateHbOfferCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-
+            
             $table->string('meta_title');
-            $table->string('meta_keyword');
-            $table->mediumText('meta_decription')->nullable();
+            $table->longText('meta_keyword');
+            $table->longText('meta_decription')->nullable();
 
             $table->tinyInteger('is_active')->default('1')->comment('0=Deactive, 1=Active');
             $table->tinyInteger('is_delete')->default('1')->comment('0=Delete, 1=Not Delete');

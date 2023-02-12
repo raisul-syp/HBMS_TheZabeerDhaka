@@ -17,15 +17,17 @@ class UserController extends Controller
 {
     public function myProfile()
     {
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
         $guests = Auth::user();
-        return view('frontend.user.my-profile', compact('guests'));
+        return view('frontend.user.my-profile', compact('settings','guests'));
     }
 
     public function editMyProfile(User $guest)
     {
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
         $guests = Auth::user();
         $countries = CountryList::all()->where('is_active','1');
-        return view('frontend.user.edit-profile', compact('guest','guests','countries'));
+        return view('frontend.user.edit-profile', compact('settings','guest','guests','countries'));
     }
 
     public function updateMyProfile(GuestEditFormRequest $request, $guest)
@@ -85,7 +87,8 @@ class UserController extends Controller
 
     public function changePassword()
     {
-        return view('frontend.user.change-password');
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
+        return view('frontend.user.change-password', compact('settings'));
     }
 
     public function updatePassword(Request $request)
@@ -109,10 +112,11 @@ class UserController extends Controller
 
     public function bookingHistory()
     {
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
         // $serialNo = 1;
         // $guests = Auth::user();
         // $bookings = Booking::all()->where('guest_id', $guests->id);
         // return view('frontend.user.booking-history', compact('serialNo', 'guests', 'bookings'));
-        return view('frontend.user.booking-history');
+        return view('frontend.user.booking-history', compact('settings'));
     }
 }

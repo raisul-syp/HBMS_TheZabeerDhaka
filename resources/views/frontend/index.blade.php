@@ -1,5 +1,9 @@
 @extends('layouts.guest')
 @section('title', 'Home')
+@foreach ($settings as $setting)
+@section('meta_decription', "$setting->meta_decription")
+@section('meta_keyword', "$setting->meta_keyword")
+@endforeach
 
 @section('content')
 <section id="heroSlider_section" class="heroSlider_section">

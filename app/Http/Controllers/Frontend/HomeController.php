@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Settings;
 use App\Models\Room;
 use App\Models\Hotel;
 use App\Models\Offer;
@@ -25,6 +26,7 @@ class HomeController extends Controller
         $total_adults = $request->adults;
         $total_childs = $request->children;
 
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
         $sliders = Slider::all()->where('is_active','1')->where('is_delete','1');
         $aboutUs = Page::all()->where('name','About Us')->where('is_active','1')->where('is_delete','1');
         $rooms = Room::all()->where('is_active','1')->where('is_delete','1');
@@ -42,7 +44,7 @@ class HomeController extends Controller
         ->where('is_active', 1)
         ->get();
 
-        return view('frontend.index', compact('sliders','aboutUs','rooms','testimonials','facilities','offers','todayDate','tomorrowDate','available_rooms'));
+        return view('frontend.index', compact('settings','sliders','aboutUs','rooms','testimonials','facilities','offers','todayDate','tomorrowDate','available_rooms'));
     }
 
     // public function checkAvailability(Request $request)
@@ -68,6 +70,7 @@ class HomeController extends Controller
 
     public function checkAvailability(Request $request)
     {
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
         $checkin_date = $request->input('checkin_date');
         $checkout_date = $request->input('checkout_date');
         $total_adults = $request->input('adults');
@@ -86,7 +89,7 @@ class HomeController extends Controller
         ->where('max_childs', '>=', (int) $total_childs)
         ->where('is_active', 1)
         ->get();
-        return view('frontend.available-rooms', compact('available_rooms', 'checkin_date', 'checkout_date', 'total_adults', 'total_childs'));
+        return view('frontend.available-rooms', compact('settings','available_rooms', 'checkin_date', 'checkout_date', 'total_adults', 'total_childs'));
     }
 
     public function roomDetails($pageDetail_slug)

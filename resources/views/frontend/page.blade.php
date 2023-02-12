@@ -1,6 +1,8 @@
 @extends('layouts.guest')
 @if ($page)
-@section('title', $page->name)
+@section('title', "$page->meta_title")
+@section('meta_decription', "$page->meta_decription")
+@section('meta_keyword', "$page->meta_keyword")
 
 @section('content')
 <section id="pages_section" class="pages_section content_section">

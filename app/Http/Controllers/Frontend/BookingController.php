@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Settings;
 use App\Models\Room;
 use App\Models\User;
 use App\Models\Admin;
@@ -19,9 +20,10 @@ class BookingController extends Controller
 {
     public function index()
     {
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
         $todayDate = Carbon::today()->format('Y-m-d');
         $tomorrowDate = Carbon::tomorrow()->format('Y-m-d');
-        return view('frontend.booking', compact('todayDate','tomorrowDate'));
+        return view('frontend.booking', compact('settings','todayDate','tomorrowDate'));
     }
 
     public function store(BookingFormRequest $request)

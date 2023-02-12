@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Settings;
 use App\Models\Room;
 use App\Models\User;
 use App\Models\Booking;
@@ -16,6 +17,7 @@ class BookingConfirmController extends Controller
 {
     public function index(Request $request)
     {
+        $settings = Settings::all()->where('is_active','1')->where('is_delete','1');
         $checkin_date = $request->input('checkin_date');
         $checkout_date = $request->input('checkout_date');
         $total_adults = $request->input('total_adults');
@@ -24,7 +26,7 @@ class BookingConfirmController extends Controller
 
         $rooms = Room::all();
 
-        return view('frontend.confirm-booking', compact('checkin_date', 'checkout_date', 'total_adults', 'total_childs', 'room_id', 'rooms'));
+        return view('frontend.confirm-booking', compact('settings','checkin_date', 'checkout_date', 'total_adults', 'total_childs', 'room_id', 'rooms'));
     }
 
     public function store(BookingFormRequest $request)

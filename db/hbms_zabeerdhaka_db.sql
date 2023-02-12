@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 12:53 PM
+-- Generation Time: Feb 12, 2023 at 11:20 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -111,21 +111,7 @@ CREATE TABLE `hb_bookings` (
 --
 
 INSERT INTO `hb_bookings` (`id`, `guest_id`, `room_id`, `staff_id`, `checkin_date`, `checkout_date`, `checkin_time`, `checkout_time`, `total_adults`, `total_childs`, `booking_status`, `is_delete`, `payment_mode`, `booking_comment`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, '2022-12-30', '2022-12-31', '14:00', '12:00', '2', '0', 1, 1, '', 'Super Admin', '1', NULL, '2022-12-26 18:17:07', '2022-12-26 18:17:07'),
-(2, 1, 2, 1, '2023-01-03', '2023-01-04', '14:00', '12:00', '2', '1', 0, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-01 21:20:58', '2023-01-01 21:20:58'),
-(3, 1, 1, 1, '2023-01-09', '2023-01-10', '14:00', '12:00', '1', '0', 3, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-08 20:53:13', '2023-01-08 20:53:13'),
-(4, 5, 2, 1, '2023-01-10', '2023-01-10', '14:00', '12:00', '2', '1', 0, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-08 21:00:56', '2023-01-08 21:00:56'),
-(5, 5, 3, 1, '2023-01-10', '2023-01-10', '14:00', '12:00', '2', '1', 0, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-08 21:05:52', '2023-01-08 21:05:52'),
-(6, 5, 2, 1, '2023-01-10', '2023-01-11', '14:00', '12:00', '6', '5', 0, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-08 21:18:36', '2023-01-08 21:18:36'),
-(7, 5, 4, 1, '2023-01-10', '2023-01-11', '14:00', '12:00', '2', '1', 1, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-08 23:28:29', '2023-01-11 19:28:59'),
-(8, 5, 1, 1, '2023-01-11', '2023-01-12', '14:00', '12:00', '2', '1', 3, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-08 23:51:49', '2023-01-08 23:51:49'),
-(9, 1, 4, 1, '2023-01-30', '2023-01-31', '14:00', '12:00', '2', '1', 0, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-09 00:09:07', '2023-01-09 00:09:07'),
-(10, 1, 1, 1, '2023-01-28', '2023-01-29', '14:00', '12:00', '2', '0', 2, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-09 00:12:58', '2023-01-09 01:08:26'),
-(11, 1, 1, 1, '2023-01-30', '2023-01-31', '14:00', '12:00', '1', '0', 1, 1, '', 'Super Admin', '1', NULL, '2023-01-09 01:08:04', '2023-01-09 01:08:04'),
-(12, 6, 3, 1, '2023-01-11', '2023-01-12', '14:00', '12:00', '2', '0', 1, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-10 18:38:15', '2023-01-10 18:42:28'),
-(13, 6, 2, 1, '2023-01-18', '2023-01-19', '14:00', '12:00', '1', '0', 3, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-10 19:10:30', '2023-01-10 19:10:30'),
-(14, 6, 4, 1, '2023-01-28', '2023-01-29', '14:00', '12:00', '1', '0', 3, 1, '', 'Super Admin', '1', '0', '2023-01-10 19:51:28', '2023-01-10 19:52:01'),
-(15, 4, 2, 1, '2023-01-12', '2023-01-14', '14:00', '12:00', '1', '0', 1, 1, '', 'Booking created by Guest', '6', NULL, '2023-01-10 20:30:57', '2023-01-11 19:26:29');
+(16, 1, 1, 1, '2023-02-05', '2023-02-06', '14:00', '12:00', '1', '0', 3, 1, 'Pay on arrival', 'Booking created by Guest', '6', NULL, '2023-02-05 03:48:35', '2023-02-05 03:48:35');
 
 -- --------------------------------------------------------
 
@@ -415,8 +401,8 @@ CREATE TABLE `hb_facilities` (
   `description` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -453,8 +439,8 @@ CREATE TABLE `hb_faqs` (
   `faq_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -492,8 +478,8 @@ CREATE TABLE `hb_halls` (
   `long_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `logo_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -542,8 +528,8 @@ CREATE TABLE `hb_offers` (
   `end_date` datetime NOT NULL,
   `thumb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -560,10 +546,10 @@ INSERT INTO `hb_offers` (`id`, `name`, `slug`, `offer_category`, `short_descript
 (1, 'New Year Celebration 2023', 'new-year-celebration-2023', 'Others', 'New Year Celebration 2023. New Year Celebration 2023. New Year Celebration 2023.', '<h4><span style=\"font-weight: bolder;\">New Year Celebration 2023. New Year Celebration 2023. New Year Celebration 2023.</span></h4><h4><span style=\"font-weight: bolder;\"><br></span></h4><p>New Year Celebration 2023. New Year Celebration 2023. New Year Celebration 2023.&nbsp;<span style=\"font-size: 0.875rem;\">New Year Celebration 2023. New Year Celebration 2023. New Year Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">New Year Celebration 2023. New Year Celebration 2023. New Year Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">New Year Celebration 2023. New Year Celebration 2023. New Year Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">New Year Celebration 2023. New Year Celebration 2023. New Year Celebration 2023.</span></p>', '2022-12-31 00:00:02', '2023-01-10 00:00:02', 'new-year-celebration-2023.jpg', 'New Year Celebration 2023', 'New Year Celebration 2023', 'New Year Celebration 2023', 1, 1, '1', '0', '2022-12-26 04:54:14', '2023-01-16 01:46:47'),
 (2, 'Valentine\'s Day Celebration 2023', 'valentines-day-celebration-2023', 'Others', 'Valentine\'s Day Celebration 2023. Valentine\'s Day Celebration 2023. Valentine\'s Day Celebration 2023.', '<h4>Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.</h4><p>Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;<span style=\"font-size: 0.875rem;\">Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;</span><span style=\"font-size: 0.875rem;\">Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;Valentine\'s Day Celebration 2023.&nbsp;</span></p>', '2023-02-13 11:59:17', '2023-02-14 23:59:17', 'valentines-day-celebration-2023.png', 'Valentine\'s Day Celebration 2023', 'Valentine\'s Day Celebration 2023', 'Valentine\'s Day Celebration 2023', 1, 1, '1', '0', '2022-12-26 05:02:19', '2023-01-16 01:47:02'),
 (3, 'Grand Opening', 'grand-opening', 'Others', 'Grand Opening', '<p>Grand Opening<br></p>', '2023-01-02 00:00:30', '2023-01-02 23:59:30', 'grand-opening.jpg', 'Grand Opening', 'Grand Opening', 'Grand Opening', 1, 1, '1', '0', '2023-01-01 01:56:32', '2023-01-16 01:47:17'),
-(4, 'Buffet Dinner', 'buffet-dinner', 'Restaurant', 'Buffet Dinner', '<p>Buffet Dinner<br></p>', '2023-01-09 09:00:42', '2023-01-31 09:00:42', 'buffet-dinner.jpeg', 'Buffet Dinner', 'Buffet Dinner', 'Buffet Dinner', 1, 1, '1', '0', '2023-01-09 03:01:49', '2023-01-16 01:44:20'),
-(5, 'Coffee Time', 'coffee-time', 'Restaurant', 'Coffee Time', '<p>Coffee Time<br></p>', '2023-01-09 09:05:52', '2023-01-31 09:05:52', 'coffee-time.jpeg', 'Coffee Time', 'Coffee Time', 'Coffee Time', 1, 1, '1', '0', '2023-01-09 03:06:23', '2023-01-16 01:47:30'),
-(6, 'Deluxe 50% Discount', 'deluxe-50-discount', 'Room', 'Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.', '<p>Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;<br></p>', '2023-01-16 09:37:10', '2023-02-14 09:37:10', 'deluxe-50-discount.png', 'Deluxe 50% Discount', 'Deluxe 50% Discount', 'Deluxe 50% Discount', 0, 1, '0', '0', '2023-01-16 03:39:12', '2023-01-17 03:10:38'),
-(7, 'Premium Delux Twin 50% Discount', 'premium-delux-twin-50-discount', 'Room', 'Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.', '<p>Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;<br></p>', '2023-01-16 09:39:25', '2023-01-31 09:39:25', 'premium-delux-twin-50-discount.png', 'Premium Delux Twin 50% Discount', 'Premium Delux Twin 50% Discount', 'Premium Delux Twin 50% Discount', 0, 1, '0', '0', '2023-01-16 03:40:23', '2023-01-17 03:10:25');
+(4, 'Buffet Dinner', 'buffet-dinner', 'Restaurant', 'Buffet Dinner', '<p>Buffet Dinner<br></p>', '2023-01-01 09:00:42', '2023-03-31 09:00:42', 'buffet-dinner.jpeg', 'Buffet Dinner', 'Buffet Dinner', 'Buffet Dinner', 1, 1, '1', '1', '2023-01-09 03:01:49', '2023-02-07 23:37:01'),
+(5, 'Coffee Time', 'coffee-time', 'Restaurant', 'Coffee Time', '<p>Coffee Time<br></p>', '2023-01-01 09:05:52', '2023-03-31 09:05:52', 'coffee-time.jpeg', 'Coffee Time', 'Coffee Time', 'Coffee Time', 1, 1, '1', '1', '2023-01-09 03:06:23', '2023-02-07 23:37:21'),
+(6, 'Deluxe 50% Discount', 'deluxe-50-discount', 'Room', 'Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.', '<p>Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount. Deluxe 50% Discount.&nbsp;<br></p>', '2023-01-01 09:37:10', '2023-03-31 09:37:10', 'deluxe-50-discount.png', 'Deluxe 50% Discount', 'Deluxe 50% Discount', 'Deluxe 50% Discount', 1, 1, '0', '1', '2023-01-16 03:39:12', '2023-02-07 23:37:41'),
+(7, 'Premium Delux Twin 50% Discount', 'premium-delux-twin-50-discount', 'Room', 'Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.', '<p>Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount. Premium Delux Twin 50% Discount.&nbsp;<br></p>', '2023-01-01 09:39:25', '2023-03-31 09:39:25', 'premium-delux-twin-50-discount.png', 'Premium Delux Twin 50% Discount', 'Premium Delux Twin 50% Discount', 'Premium Delux Twin 50% Discount', 1, 1, '0', '1', '2023-01-16 03:40:23', '2023-02-07 23:38:00');
 
 -- --------------------------------------------------------
 
@@ -576,8 +562,8 @@ CREATE TABLE `hb_offer_categories` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -611,8 +597,8 @@ CREATE TABLE `hb_restaurents` (
   `long_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `logo_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -664,8 +650,8 @@ CREATE TABLE `hb_rooms` (
   `discount_rate` int(11) NOT NULL DEFAULT 0,
   `discount_price` float(8,2) NOT NULL DEFAULT 0.00,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `has_discount` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=No, 1=Yes',
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
@@ -680,7 +666,7 @@ CREATE TABLE `hb_rooms` (
 --
 
 INSERT INTO `hb_rooms` (`id`, `name`, `slug`, `short_description`, `long_description`, `max_adults`, `max_childs`, `quantity`, `price`, `discount_rate`, `discount_price`, `meta_title`, `meta_keyword`, `meta_decription`, `has_discount`, `is_active`, `is_delete`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Deluxe', 'deluxe', 'Approximate room size:320 Sqft premium Rooms are larger than Deluxe Rooms and offer one king size or two twin size beds to suit your needs .Sink into one of two sofa chairs, and enjoy air conditioning plush bathrobes and free high speed wireless internet .', '<p>Experience the ultimate in luxury and comfort in our Delux Rooms. Our spacious and stylish guest rooms feature a range of top-of-the-line amenities to help you relax and unwind during your stay. Each room features a comfortable king-sized bed with plush bedding, a flat-screen TV with cable channels, and a private bathroom with a shower and bathtub. Book now and indulge in the ultimate in comfort and style in our Delux Rooms.<br></p>', 2, 0, 7, 220.00, 0, 0.00, 'Deluxe', 'Deluxe', 'Deluxe', 0, 1, 1, '1', '1', '2022-12-26 05:16:35', '2023-02-01 02:13:44'),
+(1, 'Deluxe', 'deluxe', 'Approximate room size:320 Sqft premium Rooms are larger than Deluxe Rooms and offer one king size or two twin size beds to suit your needs .Sink into one of two sofa chairs, and enjoy air conditioning plush bathrobes and free high speed wireless internet .', '<p>Experience the ultimate in luxury and comfort in our Delux Rooms. Our spacious and stylish guest rooms feature a range of top-of-the-line amenities to help you relax and unwind during your stay. Each room features a comfortable king-sized bed with plush bedding, a flat-screen TV with cable channels, and a private bathroom with a shower and bathtub. Book now and indulge in the ultimate in comfort and style in our Delux Rooms.<br></p>', 2, 0, 2, 220.00, 0, 0.00, 'Deluxe', 'Deluxe', 'Deluxe', 0, 1, 1, '1', '1', '2022-12-26 05:16:35', '2023-02-05 03:48:18'),
 (2, 'Premium Delux', 'premium-delux', 'Approximate room size: 320 Sqft premium Rooms are larger than Premium Deluxe Rooms and offer one king size or two twin size beds to suit your needs .Sink into one of two sofa chairs, and enjoy air conditioning plush bathrobes and free high speed wireless internet .', '<p>Step up to the ultimate in luxury and indulgence in our Premium Deluxe Rooms. Our spacious and elegantly appointed guest rooms offer the ultimate in comfort and style. Each room features a plush king-sized bed with high-quality bedding, a flat-screen TV with premium cable channels, and a private bathroom with a spa-like shower and bathtub. In addition, guests in our Premium Deluxe Rooms have access to exclusive amenities. Book now and experience the ultimate in luxury in our Premium Deluxe Rooms&nbsp;<br></p>', 2, 0, 21, 260.00, 0, 0.00, 'Premium Delux', 'Premium Delux', 'Premium Delux', 0, 1, 1, '0', '1', '2022-12-14 18:45:59', '2023-02-01 02:12:05'),
 (3, 'Premium Delux Twin', 'premium-delux-twin', 'Approximate room size:320 Sqft Premium Delux Twin Rooms are larger than Premium Delux Twin Rooms and offer one king size or two twin size beds to suit your needs .Sink into one of two sofa chairs, and enjoy air conditioning plush bathrobes and free high speed wireless internet .', '<p>Experience the ultimate in luxury and comfort in our Premium Delux Twin Rooms. Our spacious and elegantly appointed guest rooms offer a range of top-of-the-line amenities to help you relax and unwind during your stay. Each room features a plush king-sized bed with high-quality bedding, a flat-screen TV with premium cable channels, and a private bathroom with a spa-like shower and bathtub. In addition, guests in our Premium Delux Twin Rooms have access to exclusive amenities and a private balcony or terrace with stunning views of the surrounding area. Book now and indulge in the ultimate in luxury and comfort in our Premium Delux Twin Rooms&nbsp;<br></p>', 2, 0, 7, 280.00, 0, 0.00, 'Premium Delux Twin', 'Premium Delux Twin', 'Premium Delux Twin', 0, 1, 1, '0', '1', '2022-12-14 18:47:55', '2023-02-01 02:14:27'),
 (4, 'Zabeer Suite', 'zabeer-suite', 'Approximate room size:320 Sqft Zabeer Suite Rooms are larger than Zabeer Suite Rooms and offer one king size or two twin size beds to suit your needs .Sink into one of two sofa chairs, and enjoy air conditioning plush bathrobes and free high speed wireless internet .', '<p><span style=\"color: rgb(33, 37, 41); font-family: &quot;Nunito Sans&quot;, sans-serif;\">Experience the ultimate in luxury and comfort in our Zabeer Suite Rooms. Our spacious and elegantly appointed guest rooms offer a range of top-of-the-line amenities to help you relax and unwind during your stay. Each room features two comfortable twin-sized beds with high-quality bedding, a flat-screen TV with premium cable channels, and a private bathroom with a spa-like shower and bathtub. In addition, guests in our Zabeer Suite&nbsp;Rooms have access to exclusive amenities and a private balcony or terrace with stunning views of the surrounding area. Book now and indulge in the ultimate in luxury and comfort in our Zabeer Suite&nbsp;Rooms</span><br></p>', 2, 0, 7, 300.00, 10, 252.00, 'Zabeer Suite', 'Zabeer Suite', 'Zabeer Suite', 0, 1, 1, '0', '1', '2022-12-14 18:49:23', '2023-02-01 02:16:31');
@@ -698,8 +684,8 @@ CREATE TABLE `hb_roomtype` (
   `description` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -832,8 +818,8 @@ CREATE TABLE `hb_settings` (
   `social_yt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `display_order` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -847,7 +833,7 @@ CREATE TABLE `hb_settings` (
 --
 
 INSERT INTO `hb_settings` (`id`, `name`, `phone`, `email`, `address`, `logo`, `icon`, `social_fb`, `social_tw`, `social_insta`, `social_yt`, `display_order`, `meta_title`, `meta_keyword`, `meta_decription`, `is_active`, `is_delete`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'The Zabeer Dhaka', '(+88) 02224470771-73', 'info@thezabeerdhaka.com', 'House-1, Road-2, Sector-1, Uttara Model Town, Dhaka-1230', 'logo-the-zabeer-dhaka.png', 'icon-the-zabeer-dhaka.png', 'https://www.facebook.com/thezabeerdhaka', 'https://twitter.com/', 'https://www.instagram.com/', 'https://www.youtube.com/@thezabeerdhaka', '1', 'The Zabeer Dhaka', 'The Zabeer Dhaka', 'The Zabeer Dhaka', 1, 1, '1', '1', '2022-12-26 00:35:03', '2023-02-01 06:16:55');
+(1, 'The Zabeer Dhaka', '(+88) 02224470771-73', 'info@thezabeerdhaka.com', 'House-1, Road-2, Sector-1, Uttara Model Town, Dhaka-1230', 'logo-the-zabeer-dhaka.png', 'icon-the-zabeer-dhaka.png', 'https://www.facebook.com/thezabeerdhaka', 'https://twitter.com/', 'https://www.instagram.com/', 'https://www.youtube.com/@thezabeerdhaka', '1', 'The Zabeer Dhaka', 'The Zabeer Dhaka, Hotel in Dhaka, Accommodation in Dhaka, Lodging in Dhaka, Dhaka resort, Vacation rental in Dhaka, Dhaka bed and breakfast, Inn in Dhaka, Guesthouse in Dhaka, Motel in Dhaka, Dhaka vacation, Dhaka travel, Getaway in Dhaka, Luxury hotel in Dhaka, Boutique hotel in Dhaka, Budget hotel in Dhaka, Family-friendly hotel in Dhaka, Pet-friendly hotel in Dhaka, Business hotel in Dhaka, Conference center in Dhaka, Meeting facilities in Dhaka, Event space in Dhaka, Spa in Dhaka, Pool in Dhaka, Restaurant in Dhaka, Gym in Dhaka, Free Wi-Fi in Dhaka, Parking in Dhaka, Dhaka location, Dhaka destination, Dhaka attractions, Dhaka tourist spots, Available rooms, Hotel rooms, The Zabeer Dhaka hotel, Dhaka hotel, Room types, Room availability, Room booking, Room reservation, Hotel booking, Hotel reservation, Room details, Room amenities, Room pricing, Room photos, Book a room, Make a reservation, Online booking, Secure booking, Easy booking, Fast booking, Convenient booking', 'The Zabeer Dhaka is a luxurious and elegant hotel located in the heart of Dhaka. Offering a variety of comfortable rooms, top-notch amenities, and exceptional service, we are the perfect choice for your next getaway. Book your stay today! Discover the variety of rooms available at The Zabeer Dhaka hotel in Dhaka. Choose from our comfortable and stylish rooms, view photos, and book your stay online with ease. Enjoy a convenient and secure booking experience.', 1, 1, '1', '1', '2022-12-26 00:35:03', '2023-02-12 04:14:57');
 
 -- --------------------------------------------------------
 
@@ -868,8 +854,8 @@ CREATE TABLE `hb_webcontactinfos` (
   `email_reservation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `display_order` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -900,8 +886,8 @@ CREATE TABLE `hb_webfacilities` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `display_order` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -936,8 +922,8 @@ CREATE TABLE `hb_webnavs` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `display_order` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -976,8 +962,8 @@ CREATE TABLE `hb_webpages` (
   `display_order` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `footer_item` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=No, 1=Yes',
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
@@ -1024,8 +1010,8 @@ CREATE TABLE `hb_websliders` (
   `content_5` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `display_order` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1059,8 +1045,8 @@ CREATE TABLE `hb_webtestimonials` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `display_order` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1092,8 +1078,8 @@ CREATE TABLE `hb_wellness` (
   `long_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `logo_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_keyword` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_decription` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `meta_keyword` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_decription` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Deactive, 1=Active',
   `is_delete` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Delete, 1=Not Delete',
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1892,7 +1878,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `hb_bookings`
 --
 ALTER TABLE `hb_bookings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `hb_country`

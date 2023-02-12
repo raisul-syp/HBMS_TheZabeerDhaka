@@ -1,5 +1,9 @@
 @extends('layouts.guest')
 @section('title', 'Available Rooms')
+@foreach ($settings as $setting)
+@section('meta_decription', "$setting->meta_decription")
+@section('meta_keyword', "$setting->meta_keyword")
+@endforeach
 
 @section('content')
     <section id="roomAvailability_section" class="roomAvailability_section">

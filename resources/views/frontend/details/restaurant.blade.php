@@ -1,5 +1,7 @@
 @extends('layouts.guest')
-@section('title', 'Restaurants Details')
+@section('title', "$restaurant->meta_title")
+@section('meta_decription', "$restaurant->meta_decription")
+@section('meta_keyword', "$restaurant->meta_keyword")
 
 @section('content')
 <section id="page_details_section_frontend" class="page_details_section_frontend content_section">

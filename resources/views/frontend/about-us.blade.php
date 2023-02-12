@@ -1,5 +1,11 @@
 @extends('layouts.guest')
-@section('title', 'About Us')
+@foreach ($pages as $page)
+@if ($page->name == 'About Us')
+@section('title', "$page->meta_title")
+@section('meta_decription', "$page->meta_decription")
+@section('meta_keyword', "$page->meta_keyword")
+@endif
+@endforeach
 
 @section('content')
 <section id="about_section" class="about_section content_section" style="padding: 40px 0;">
